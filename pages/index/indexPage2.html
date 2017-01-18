@@ -18,20 +18,6 @@
 </head>
 
 <body>
-<!-- 资讯-->
-<!--最新头条-->
-<!--<div class="container">-->
-  <!--<div class="row">-->
-    <!--<div class="col-lg-2">-->
-      <!--<button type="button" class="btn btn-link hidden-md-down"style="color: #333333; text-decoration: none;"><b>最新头条</b></button>-->
-    <!--</div>-->
-    <!--<div class="col-lg-8"></div>-->
-    <!--<div class="col-lg-2">-->
-      <!--<a href="index2.html"><button type="button" class="btn btn-link hidden-md-down" style="color: #333333; text-decoration: none;"><b>查看更多</b></button></a>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
-<!--1-->
 <script type="text/javascript">
   $(function(){
     $.getJSON("../../files/data/news.json",function(data){
@@ -66,7 +52,7 @@
         tittleLink.attr("href","../mainPage/news"+count+".html");
 
         cardTittle.addClass("card-title");
-        textContainer.addClass("card-text");
+        cardText.addClass("card-text hidden-md-down");
         cardTime.addClass("text-muted");
 
 

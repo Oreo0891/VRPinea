@@ -19,9 +19,9 @@
 </head>
 <body>
 
-  <div class="container" id="myContent">
+  <div class="container-fluid p-0" id="myContent">
   </div>
-  <div class="container" id="myComment">
+  <div class="container-fluid p-0" id="myComment">
   </div>
   <script type="text/javascript">
     $(function(){
@@ -74,13 +74,13 @@
           var commentArea = $("<textarea></textarea>");
           var commitComment = $("<button></button>");
 
-          cardBody.addClass("card-block pb-0");
+          cardBody.addClass("card-block p-0");
           cardTitle.addClass("card-title");
           smallTitle.addClass("card-subtitle text-muted");
           tag1.addClass("tag tag-default ml-1");
           tag2.addClass("tag tag-default ml-1");
           tag3.addClass("tag tag-default ml-1");
-          textContain.addClass("container-fluid mt-2 mb-2");
+          textContain.addClass("container-fluid mt-2 mb-2 p-0");
           buttonModuel.addClass("container");
           button.addClass("row");
           blankModuelL.addClass("col-lg-3 col-md-3 col-sm-2 col-xs-2");
