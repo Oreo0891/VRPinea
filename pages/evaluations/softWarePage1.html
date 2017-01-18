@@ -150,7 +150,7 @@
           </form>
           <br/>
           <hr/>
-          <div class="card-block" id="myComment">
+          <div class="card-block p-0" id="myComment">
           </div>
       </div>
         <div class="col-lg-4 hidden-md-down">
@@ -384,7 +384,7 @@
         DPContainer.append(dpname);
         RNContainer.append(official);
         RNContainer.append(ofname);
-        PLContainer.append(player)
+        PLContainer.append(player);
         cardFooter.append(PLContainer);
 
         rightContainer.append(rightBody);
@@ -453,12 +453,12 @@
         var commitBTN = $("<button></button>");
         var userPhoto = $("<img>");
 
-        cardBody.addClass("card-block");
+        cardBody.addClass("card-block p-0");
 //          cardTitle.addClass("card-title");
         commentBody.addClass("container-fluid");
         commentContent.addClass("row");
-        imgContainer.addClass("col-lg-2 col-md-2 col-sm-2 col-xs-2");
-        textContainer.addClass("col-lg-10 col-md-10 col-sm-10 col-xs-10");
+        imgContainer.addClass("col-lg-2 col-md-2 hidden-md-down");
+        textContainer.addClass("col-lg-10 col-md-10 p-0");
         time.addClass("text-muted commentBTN");
         cardText.addClass("card-text");
         commitBTN.addClass("btn btn-md btn-secondary commentBTN");
