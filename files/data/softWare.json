@@ -1,0 +1,35 @@
+[
+  {
+    "title": "FinalFantasy XV",
+    "price-tag": "¥268.00",
+    "type": "游戏类型:",
+    "typename": "RPG",
+    "plantform": "适用平台:",
+    "PFName": "windows/PSVR",
+    "PublicTime": "发布时间:",
+    "time": "2017年1月16日",
+    "src":  "../../files/img/u192.jpg"
+  },
+  {
+    "title": "The Walking Dead VII",
+    "price-tag": "¥168.00",
+    "type": "游戏类型:",
+    "typename": "RPG FPS",
+    "plantform": "适用平台:",
+    "PFName": "XBox/PSVR",
+    "PublicTime": "发布时间:",
+    "time": "2017年1月16日",
+    "src":  "../../files/img/u232.png"
+  },
+  {
+    "title": "The of the World XV",
+    "price-tag": "¥68.00",
+    "type": "游戏类型:",
+    "typename": "RPG",
+    "plantform": "适用平台:",
+    "PFName": "iOS",
+    "PublicTime": "发布时间:",
+    "time": "2017年1月16日",
+    "src":  "../../files/img/u748.png"
+  }
+]

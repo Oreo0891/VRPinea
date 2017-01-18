@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="CN">
+
+	<head>
+		<!-- Required meta tags always come first -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>VRPinea</title>
+		<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../dist/css/myStyle.css">
+    <script src="../../dist/js/myLogin.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <!--<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">-->
+	</head>
+
+	<body>
+		<!-- 资讯-->
+		<!--最新头条-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2">
+					<button type="button" class="btn btn-link hidden-md-down"style="color: #333333; text-decoration: none;"><b>最新头条</b></button>
+				</div>
+				<div class="col-lg-8"></div>
+				<div class="col-lg-2">
+          <a href="index2.html"><button type="button" class="btn btn-link hidden-md-down" style="color: #333333; text-decoration: none;"><b>查看更多</b></button></a>
+				</div>
+			</div>
+		</div>
+		<!--1-->
+    <script type="text/javascript">
+      $(function(){
+        $.getJSON("../../files/data/index.json",function(data){
+          var count = 0;
+          var $jsontip = $("#myContent");
+//          var strHtml = "123";//存储数据的变量
+          $jsontip.empty();//清空内容
+          $.each(data,function(infoIndex,info){
+            count++;
+            var cardBody = $("<div></div>");
+            var cardContainer = $("<div></div>");
+            var imgContainer = $("<div></div>");
+            var cardImg = $("<img/>");
+            var textContainer = $("<div></div>");
+            var tittleLink = $("<a></a>");
+            var cardTittle = $("<h5></h5>");
+            var cardText = $("<p></p>");
+            var cardTime = $("<p></p>");
+            var blank = $("<br/>");
+
+            cardBody.addClass("card card-block");
+            cardContainer.addClass("row");
+            imgContainer.addClass("col-lg-4 col-md-4 col-sm-4 col-xs-4");
+            textContainer.addClass("col-lg-8 col-md-8 col-sm-8 col-xs-8");
+            cardImg.addClass("card-img-bottom	w-100");
+
+            cardTittle.html(info["title"]);
+            cardText.html(info["intro"]);
+            cardTime.html(info["time"]);
+
+            cardImg.attr("src",info["src"]);
+            tittleLink.attr("href","../mainPage/news"+count+".html");
+            cardText.addClass("hidden-md-down")
+            cardTittle.addClass("card-title");
+            textContainer.addClass("card-text");
+            cardTime.addClass("text-muted");
+
+
+            cardBody.append(cardContainer);
+            cardContainer.append(imgContainer);
+            cardContainer.append(textContainer);
+            tittleLink.append(cardTittle);
+            textContainer.append(tittleLink);
+
+            imgContainer.append(cardImg);
+            textContainer.append(cardText);
+            textContainer.append(cardTime);
+
+//            console.log(info);
+
+
+            $jsontip.append(cardBody);//显示处理后的数据
+            $jsontip.append(blank);
+          })
+        })
+
+
+      })
+    </script>
+    <div class="container" id="myContent">
+    </div>
+
+		<!--查看更多-->
+		<div class="container">
+			<div class="row">
+					<div class="col-lg-3"></div>
+					<div class="col-lg-6">
+            <a href="index2.html"><button  type="button"class="btn btn-secondary btn-lg btn-block"style="width: 100%;">查看更多</button></a>
+					</div>
+					<div class="col-lg-3"></div>
+				</div>
+			</div>
+
+		<!-- jQuery first, then Bootstrap JS. -->
+	</body>
+</html>

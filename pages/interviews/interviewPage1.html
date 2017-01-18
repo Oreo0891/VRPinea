@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../dist/css/bootstrap-flex.css">
+  <!--<link rel="stylesheet" href="../../dist/css/bootstrap.css">-->
+  <link rel="stylesheet" href="../../dist/css/myStyle.css">
+  <script src="../../dist/js/myLogin.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .commentBTN{
+      float: right;
+    }
+  </style>
+  <title>VRPinea</title>
+</head>
+<body>
+
+<div class="container" id="myContent">
+</div>
+<div class="container" id="myComment">
+</div>
+<script type="text/javascript">
+  $(function(){
+    $.getJSON("../../files/data/interviewsContent.json",function(data){
+      var $jsontip = $("#myContent");
+      $jsontip.empty();//清空内容
+      $.each(data,function(infoIndex,info){
+        var toplink = $("<a></a>");
+        var secondlink = $("<a></a>");
+
+        var toplv = $("<span></span>");
+        var secondlv = $("<span></span>");
+
+        toplink.attr("href","../mainPage/index1.html");
+        secondlink.attr("href","../mainPage/index4.html");
+
+        toplv.html("首页" + ">");
+        secondlv.html("专访");
+
+        toplink.append(toplv);
+        secondlink.append(secondlv);
+
+        $jsontip.append(toplink);
+        $jsontip.append(secondlink);
+
+        var blank = $("<br/>");
+        var cardBody = $("<div></div>");
+        var cardTitle = $("<h3></h3>");
+        var smallTitle = $("<h6></h6>");
+        var author = $("<span></span>");
+        var time = $("<span></span>");
+        var tag1 = $("<span></span>");
+        var tag2 = $("<span></span>");
+        var tag3 = $("<span></span>");
+        var textContain = $("<div></div>");
+        var buttonModuel = $("<div></div>");
+        var buttonContain1 = $("<div></div>");
+        var buttonContain2 = $("<div></div>");
+        var blankModuelL = $("<div></div>");
+        var blankModuelR= $("<div></div>");
+        var button = $("<div></div>");
+        var dz = $("<button></button>");
+        var fx = $("<button></button>");
+        var myform = $("<form></form>");
+        var formBody = $("<div></div>");
+        var tips = $("<label></label>");
+        var commentArea = $("<textarea></textarea>");
+        var commitComment = $("<button></button>");
+
+        cardBody.addClass("card-block pb-0");
+        cardTitle.addClass("card-title");
+        smallTitle.addClass("card-subtitle text-muted");
+        tag1.addClass("tag tag-default ml-1");
+        tag2.addClass("tag tag-default ml-1");
+        tag3.addClass("tag tag-default ml-1");
+        textContain.addClass("container-fluid mt-2 mb-2");
+        buttonModuel.addClass("container");
+        button.addClass("row");
+        blankModuelL.addClass("col-lg-3 col-md-3 col-sm-2 col-xs-2");
+        blankModuelR.addClass("col-lg-3 col-md-3 col-sm-2 col-xs-2");
+        buttonContain1.addClass("col-lg-3 col-md-3 col-sm-4 col-xs-4");
+        buttonContain2.addClass("col-lg-3 col-md-3 col-sm-4 col-xs-4");
+        dz.addClass("btn btn-secondary w-100");
+        fx.addClass("btn btn-secondary w-100");
+        formBody.addClass("form-group");
+        commentArea.addClass("form-control mb-1");
+        commitComment.addClass("btn btn-secondary commentBTN");
+
+        cardTitle.html(info["title"]);
+        author.html(info["author"] + "&nbsp|");
+        time.html(info["time"]);
+        tag1.html(info["tag1"]);
+        tag2.html(info["tag2"]);
+        tag3.html(info["tag3"]);
+        textContain.html(info["text"]);
+        dz.html("点赞");
+        fx.html("分享");
+        tips.html("参与讨论");
+        commitComment.html("提交评论");
+
+        tips.attr("for","exampleTextarea");
+        commentArea.attr("id","exampleTextarea");
+        commitComment.attr("type","submit");
+
+        cardBody.append(cardTitle);
+        cardBody.append(smallTitle);
+        cardBody.append(textContain);
+        cardBody.append(buttonModuel);
+        cardBody.append(myform);
+
+        smallTitle.append(author);
+        smallTitle.append(time);
+        smallTitle.append(tag1);
+        smallTitle.append(tag2);
+        smallTitle.append(tag3);
+
+        buttonModuel.append(button);
+
+        button.append(blankModuelL);
+        button.append(buttonContain1);
+        button.append(buttonContain2);
+        button.append(blankModuelR);
+
+        buttonContain1.append(dz);
+        buttonContain2.append(fx);
+
+        myform.append(formBody);
+        formBody.append(tips);
+        formBody.append(commentArea);
+        formBody.append(commitComment);
+        $jsontip.append(cardBody);//显示处理后的数据
+        $jsontip.append(blank);
+      })
+    })
+
+
+  })
+  $(function(){
+    $.getJSON("../../files/data/interviewsComment.json",function(data){
+      var $jsontip = $("#myComment");
+      var otherComment = $("<h6></h6>");
+      otherComment.addClass("card-text mt-3");
+      otherComment.html("最新评论");
+
+      $jsontip.empty();//清空内容
+      $jsontip.append(otherComment);//显示处理后的数据
+      $.each(data,function(infoIndex,info){
+        var cardBody = $("<div></div>");
+        var fgx = $("<hr/>");
+        var commentBody = $("<div></div>");
+        var commentContent = $("<div></div>");
+        var imgContainer = $("<div></div>");
+        var textContainer = $("<div></div>");
+        var author = $("<span></span>");
+        var authorLink = $("<a></a>");
+        var time = $("<span></span>");
+        var cardText = $("<p></p>");
+        var commitBTN = $("<button></button>");
+        var userPhoto = $("<img>");
+
+        cardBody.addClass("card-block");
+//          cardTitle.addClass("card-title");
+        commentBody.addClass("container-fluid");
+        commentContent.addClass("row");
+        imgContainer.addClass("col-lg-2 col-md-2 col-sm-2 col-xs-2");
+        textContainer.addClass("col-lg-10 col-md-10 col-sm-10 col-xs-10");
+        time.addClass("text-muted commentBTN");
+        cardText.addClass("card-text");
+        commitBTN.addClass("btn btn-md btn-secondary commentBTN");
+        userPhoto.addClass("w-100");
+//          cardTitle.html(info["title"]);
+        userPhoto.attr("src",info["photo"]);
+        authorLink.html(info["name"]);
+        time.html(info["time"]);
+        cardText.html(info["comment_container"]);
+        commitBTN.html("回复");
+
+        cardBody.append(commentBody);
+        commentBody.append(commentContent);
+        commentContent.append(imgContainer);
+        commentContent.append(textContainer);
+        imgContainer.append(userPhoto);
+        author.append(authorLink);
+        textContainer.append(author);
+        textContainer.append(time);
+        textContainer.append(cardText);
+        textContainer.append(commitBTN);
+
+        $jsontip.append(fgx);//显示处理后的数据
+        $jsontip.append(cardBody);//显示处理后的数据
+      })
+    })
+
+
+  })
+</script>
+</body>
+</html>

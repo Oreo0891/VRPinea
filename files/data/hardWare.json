@@ -1,0 +1,41 @@
+[
+  {
+    "title": "PlayStation VR",
+    "price-tag": "¥2678.00",
+    "type": "设备类型:",
+    "typename": "分体头显",
+    "screen": "屏幕分辨率:",
+    "screennum": "1920*1080（单眼960*1080）",
+    "FOV": "视场角（FOV）:",
+    "FOVnum": "110°",
+    "reaction": "反应延迟:",
+    "reactionnum": "≤20ms",
+    "src":  "../../files/img/u748.png"
+  },
+  {
+    "title": "Vivl VR",
+    "price-tag": "¥2678.00",
+    "type": "设备类型:",
+    "typename": "分体头显",
+    "screen": "屏幕分辨率:",
+    "screennum": "1920*1080（单眼960*1080）",
+    "FOV": "视场角（FOV）:",
+    "FOVnum": "110°",
+    "reaction": "反应延迟:",
+    "reactionnum": "≤20ms",
+    "src":  "../../files/img/u748.png"
+  },
+  {
+    "title": "Mi VR",
+    "price-tag": "¥2678.00",
+    "type": " 设备类型:",
+    "typename": " 分体头显",
+    "screen": "屏幕分辨率:",
+    "screennum": "1920*1080（单眼960*1080）",
+    "FOV": "视场角（FOV）:",
+    "FOVnum": "110°",
+    "reaction": "反应延迟:",
+    "reactionnum": "≤20ms",
+    "src":  "../../files/img/u748.png"
+  }
+]

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../dist/css/bootstrap-flex.css">
+  <link rel="stylesheet" href="../../dist/css/myStyle.css">
+  <script src="../../dist/js/myLogin.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .card-text{
+      line-height:2rem;
+    }
+     .commentBTN{
+       float: right;
+     }
+  </style>
+  <title>VRPinea</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="card-block" id="eval">
+
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2">
+
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+        <button type="button" class="btn btn-secondary w-100">点赞</button>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+        <button type="button" class="btn btn-secondary w-100">分享</button>
+
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2">
+      </div>
+
+    </div>
+  </div>
+  <br/>
+  <hr/>
+  <form>
+    <div class="form-group">
+      <label for="exampleTextarea"><b>参与评论</b></label>
+      <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="参与评论..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-secondary commentBTN">提交评论</button>
+  </form>
+  <div class="container" id="myComment">
+  </div>
+  <script>
+    $(function(){
+      $.getJSON("../../files/data/evaluation.json",function(data){
+        var $jsontip = $("#eval");
+
+        $jsontip.empty();//清空内容
+        $.each(data,function(infoIndex,info){
+
+          $jsontip.html(info["text"]);//显示处理后的数据
+        })
+      })
+
+    })
+    $(function(){
+      $.getJSON("../../files/data/HWComment.json",function(data){
+        var $jsontip = $("#myComment");
+        var otherComment = $("<h6></h6>");
+        otherComment.addClass("card-text mt-3");
+        otherComment.html("最新评论");
+
+        $jsontip.empty();//清空内容
+        $jsontip.append(otherComment);//显示处理后的数据
+        $.each(data,function(infoIndex,info){
+          var cardBody = $("<div></div>");
+          var fgx = $("<hr/>");
+          var commentBody = $("<div></div>");
+          var commentContent = $("<div></div>");
+          var imgContainer = $("<div></div>");
+          var textContainer = $("<div></div>");
+          var author = $("<span></span>");
+          var authorLink = $("<a></a>");
+          var time = $("<span></span>");
+          var cardText = $("<p></p>");
+          var commitBTN = $("<button></button>");
+          var userPhoto = $("<img>");
+
+          cardBody.addClass("card-block");
+//          cardTitle.addClass("card-title");
+          commentBody.addClass("container-fluid");
+          commentContent.addClass("row");
+          imgContainer.addClass("col-lg-2 col-md-2 col-sm-2 col-xs-2");
+          textContainer.addClass("col-lg-10 col-md-10 col-sm-10 col-xs-10");
+          time.addClass("text-muted commentBTN");
+          cardText.addClass("card-text");
+          commitBTN.addClass("btn btn-md btn-secondary commentBTN");
+          userPhoto.addClass("w-100");
+          author.addClass("mr-2")
+//          cardTitle.html(info["title"]);
+          userPhoto.attr("src",info["photo"]);
+          authorLink.html(info["name"]);
+          time.html(info["time"]);
+          cardText.html(info["comment_container"]);
+          commitBTN.html("回复");
+
+          cardBody.append(commentBody);
+          commentBody.append(commentContent);
+          commentContent.append(imgContainer);
+          commentContent.append(textContainer);
+          imgContainer.append(userPhoto);
+          author.append(authorLink);
+          textContainer.append(author);
+          textContainer.append(time);
+          textContainer.append(cardText);
+          textContainer.append(commitBTN);
+
+          $jsontip.append(fgx);//显示处理后的数据
+          $jsontip.append(cardBody);//显示处理后的数据
+        })
+      })
+
+
+    })
+  </script>
+</body>
+</html>

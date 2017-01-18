@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../dist/css/bootstrap-flex.css">
+
+  <link rel="stylesheet" href="../../dist/css/myStyle.css">
+  <script src="../../dist/js/myLogin.js"></script><script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+  <script src="../../dist/js/bootstrap.js"></script>
+  <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <style>
+    .mynav{
+      padding-top: 2rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+    }
+    .nav-item{
+      text-align: center;
+    }
+  </style>
+  <title>VRPinea</title>
+</head>
+<body ng-app = "">
+<div class="myTop" ng-include="'../common/top.html'"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card-block" id="hardWareInfo">
+
+
+      </div>
+      <div class="container">
+        <ul class="nav nav-tabs mynav" role="tablist">
+          <li class="nav-item">
+            <a href="#evalue" class="nav-link pl-3 pr-3" data-toggle="tab" role="tab">测评</a>
+          </li>
+          <li class="nav-item">
+            <a href="#msg" class="nav-link pl-3 pr-3" data-toggle="tab" role="tab" >基本信息</a>
+          </li>
+          <li class="nav-item">
+            <a href="#video" class="nav-link pl-3 pr-3" data-toggle="tab" role="tab">视频</a>
+          </li>
+          <li class="nav-item">
+            <a href="#pic" class="nav-link pl-3 pr-3" data-toggle="tab" role="tab">图片</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="evalue" role="tabpanel" ng-include = "'../evaluations/hardWarePage1.html'"></div>
+        <div class="tab-pane fade in " id="msg" role="tabpanel" ng-include = "'../evaluations/hardWarePage2.html'"></div>
+        <div class="tab-pane fade in " id="video" role="tabpanel" ng-include = "'../evaluations/hardWarePage3.html'"></div>
+        <div class="tab-pane fade in " id="pic" role="tabpanel" ng-include = "'../evaluations/hardWarePage4.html'"></div>
+      </div>
+
+
+    </div>
+    <div class="col-lg-4 hidden-md-down">
+      <div class="card-block">
+        <h5 class="card-title">VR硬件排行榜</h5>
+        <div class="row">
+          <div class="col-lg-3">
+            <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+          </div>
+          <div class="col-lg-9">
+            <p class="card-title">中兴VR</p>
+          </div>
+          <div class="col-lg-3">
+            <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+          </div>
+          <div class="col-lg-9">
+            <p class="card-title">海信蚁视VR眼镜</p>
+          </div>
+          <div class="col-lg-3">
+            <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+          </div>
+          <div class="col-lg-9">
+            <p class="card-title">暴风魔镜5/暴风魔镜5 Plus</p>
+          </div>
+          <div class="col-lg-3">
+            <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+          </div>
+          <div class="col-lg-9">
+            <p class="card-title">华硕VR眼镜</p>
+          </div>
+          <div class="col-lg-3">
+            <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+          </div>
+          <div class="col-lg-9">
+            <p class="card-title">Idealens K2</p>
+          </div>
+          <div class="col-lg-3">
+            <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+          </div>
+          <div class="col-lg-9">
+            <p class="card-title">OSVR</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="myFooter">
+  <div ng-include="'../common/footer.html'"></div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $.getJSON("../../files/data/HDMainInfo.json",function(data){
+      var $jsontip = $("#hardWareInfo");
+      $jsontip.empty();//清空内容
+      $.each(data,function(infoIndex,info){
+
+        var toplink = $("<a></a>");
+        var secondlink = $("<a></a>");
+        var thislink = $("<a></a>");
+
+        var toplv = $("<span></span>");
+        var secondlv = $("<span></span>");
+        var thislv = $("<span></span>");
+
+        toplink.attr("href","../mainPage/index1.html");
+        secondlink.attr("href","../mainPage/index2.html");
+
+        toplv.html("首页" + ">");
+        secondlv.html("硬件测评 "+ ">");
+        thislv.html(info["title"]);
+
+        toplink.append(toplv);
+        secondlink.append(secondlv);
+        thislink.append(thislv);
+
+        $jsontip.append(toplink);
+        $jsontip.append(secondlink);
+        $jsontip.append(thislink);
+
+        var blank = $("<br/>");
+        var body = $("<div></div>");
+        var imgContainer = $("<div></div>");
+        var infoContain = $("<div></div>");
+        var title = $("<h3></h3>");
+        var priceContainer = $("<p></p>");
+        var advanceContainer = $("<p></p>");
+        var shortageContainer = $("<p></p>");
+        var time = $("<p></p>");
+        var priceCN = $("<span></span>");
+        var pricetag = $("<span></span>");
+        var advance = $("<span></span>");
+        var ADVPoint = $("<span></span>");
+        var shortage = $("<span></span>");
+        var STPoint = $("<span></span>");
+        var img = $("<img>");
+
+        body.addClass("row");
+        imgContainer.addClass("col-lg-5");
+        infoContain.addClass("col-lg-7");
+        img.addClass("w-100");
+        title.addClass("card-title");
+        pricetag.addClass("text-danger font-weight-bold");
+        advance.addClass("text-muted");
+        shortage.addClass("text-muted");
+
+        title.html(info["title"]);
+        time.html(info["time"]);
+        priceCN.html(info["price-info"]);
+        pricetag.html(info["price-tag"]);
+        advance.html(info["advance"]);
+        ADVPoint.html(info["ADPiont"]);
+        shortage.html(info["shortage"]);
+        STPoint.html(info["STPiont"]);
+
+        img.attr("src",info["src"]);
+        pricetag.attr("style","font-size:2rem");
+
+        body.append(imgContainer);
+        body.append(infoContain);
+
+        imgContainer.append(img);
+        infoContain.append(title);
+        infoContain.append(priceContainer);
+        infoContain.append(advanceContainer);
+        infoContain.append(shortageContainer);
+
+        priceContainer.append(priceCN);
+        priceContainer.append(pricetag);
+        advanceContainer.append(advance);
+        advanceContainer.append(ADVPoint);
+        shortageContainer.append(shortage);
+        shortageContainer.append(STPoint);
+
+        $jsontip.append(body);
+      })
+    })
+
+
+  })
+</script>
+
+</body>
+</html>

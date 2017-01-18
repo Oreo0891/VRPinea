@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../dist/css/bootstrap-flex.css">
+
+  <link rel="stylesheet" href="../../dist/css/myStyle.css">
+  <script src="../../dist/js/myLogin.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .card-text{
+      line-height:2rem;
+    }
+    .mynav{
+      padding-top: 2rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+    }
+    .nav-item{
+      text-align: center;
+    }
+    .commentBTN{
+      float: right;
+    }
+  </style>
+  <title>VRPinea</title>
+</head>
+<body>
+  <div class="container">
+    <div class="card card-block" id="thisGame">
+
+    </div>
+
+    <br/>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <div class="container">
+            <ul class="nav nav-tabs mynav" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link pl-3 pr-3" data-toggle="tab" href="#pic" role="tab">图片</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pl-3 pr-3" data-toggle="tab" href="#video" role="tab">视频</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+
+      <br/>
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="pic" role="tabpanel">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="card card-inverse">
+                <img class="w-100" src="../../files/img/u748.png" alt="">
+                <div class="card-img-overlay p-0">
+                  <h5 class="card-title pt-1 pb-1 text-lg-center text-md-center text-sm-center text-xs-center myPicTittle" >现场实图</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-inverse">
+                <img class="w-100" src="../../files/img/u748.png" alt="">
+                <div class="card-img-overlay p-0">
+                  <h5 class="card-title pt-1 pb-1 text-lg-center text-md-center text-sm-center text-xs-center myPicTittle" >现场实图</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-inverse">
+                <img class="w-100" src="../../files/img/u748.png" alt="">
+                <div class="card-img-overlay p-0">
+                  <h5 class="card-title pt-1 pb-1 text-lg-center text-md-center text-sm-center text-xs-center myPicTittle" >现场实图</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-inverse">
+                <img class="w-100" src="../../files/img/u748.png" alt="">
+                <div class="card-img-overlay p-0">
+                  <h5 class="card-title pt-1 pb-1 text-lg-center text-md-center text-sm-center text-xs-center myPicTittle" >现场实图</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="banner">
+            <div id="carousel-example-generic" class="carousel slidev col-lg-12 hidden-md-down" data-ride="carousel">
+              <div class="container">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <img src="../../files/img/main0.jpg" alt="First slide" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../../files/img/main1.jpg" alt="Second slide" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../../files/img/main2.jpg" alt="Third slide" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../../files/img/main3.jpg" alt="Fourth slide" />
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../../files/img/main4.jpg" alt="Fiveth slide" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="video" role="tabpanel">
+          <br/>
+          <video src="">
+
+          </video>
+          <br/>
+          <video src="">
+
+          </video>
+          <br/>
+        </div>
+      </div>
+      <br/>
+      <br/>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <hr/>
+          <form>
+            <div class="form-group">
+              <label for="exampleTextarea"><b>参与评论</b></label>
+              <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="参与评论..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary commentBTN">提交评论</button>
+          </form>
+          <br/>
+          <hr/>
+          <div class="card-block" id="myComment">
+          </div>
+      </div>
+        <div class="col-lg-4 hidden-md-down">
+          <div class="card-block">
+            <h5 class="card-title">VR硬件排行榜</h5>
+            <div class="row">
+              <div class="col-lg-3">
+                <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+              </div>
+              <div class="col-lg-9">
+                <p class="card-title">中兴VR</p>
+              </div>
+              <div class="col-lg-3">
+                <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+              </div>
+              <div class="col-lg-9">
+                <p class="card-title">海信蚁视VR眼镜</p>
+              </div>
+              <div class="col-lg-3">
+                <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+              </div>
+              <div class="col-lg-9">
+                <p class="card-title">暴风魔镜5/暴风魔镜5 Plus</p>
+              </div>
+              <div class="col-lg-3">
+                <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+              </div>
+              <div class="col-lg-9">
+                <p class="card-title">华硕VR眼镜</p>
+              </div>
+              <div class="col-lg-3">
+                <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+              </div>
+              <div class="col-lg-9">
+                <p class="card-title">Idealens K2</p>
+              </div>
+              <div class="col-lg-3">
+                <img class="w-100" src="../../files/img/u584.jpg" alt="产品图片">
+
+              </div>
+              <div class="col-lg-9">
+                <p class="card-title">OSVR</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<script>
+  $(function(){
+    $.getJSON("../../files/data/SWInfo.json",function(data){
+      var $jsontip = $("#thisGame");
+      $jsontip.empty();//清空内容
+      $.each(data,function(infoIndex,info){
+
+        var toplink = $("<a></a>");
+        var secondlink = $("<a></a>");
+        var thislink = $("<a></a>");
+
+        var toplv = $("<span></span>");
+        var secondlv = $("<span></span>");
+        var thislv = $("<span></span>");
+
+        toplink.attr("href","../mainPage/index1.html");
+        secondlink.attr("href","../mainPage/index3.html");
+
+        toplv.html("首页" + ">");
+        secondlv.html("内容测评 "+ ">");
+        thislv.html(info["CN_title"]);
+
+        toplink.append(toplv);
+        secondlink.append(secondlv);
+        thislink.append(thislv);
+
+        $jsontip.append(toplink);
+        $jsontip.append(secondlink);
+        $jsontip.append(thislink);
+
+        var body = $("<div></div>");
+        var leftContainer = $("<div></div>");
+        var rightContainer = $("<div></div>");
+        var cardIMG = $("<div></div>");
+        var userPhoto = $("<img>");
+        var cardFooter = $("<div></div>");
+        var DPContainer = $("<p></p>");
+        var RNContainer = $("<p></p>");
+        var PLContainer = $("<p></p>");
+        var dp = $("<span></span>");
+        var dpname = $("<span></span>");
+        var rn = $("<span></span>");
+        var rnname = $("<span></span>");
+        var official = $("<span></span>");
+        var ofname = $("<span></span>");
+        var player = $("<span></span>");
+        var rightBody = $("<div></div>");
+        var inforBody = $("<div></div>");
+        var scoreBody = $("<div></div>");
+        var title = $("<h2></h2>");
+        var nexttitle = $("<h4></h4>");
+        var pubContainer = $("<p></p>");
+        var priContainer = $("<p></p>");
+        var toolContainer = $("<p></p>");
+        var typeContainer = $("<p></p>");
+        var rcgContainer = $("<p></p>");
+
+        var pbTime = $("<span></span>");
+        var time = $("<span></span>");
+        var price = $("<span></span>");
+        var pricetag = $("<span></span>");
+        var tools = $("<span></span>");
+        var toolsname = $("<span></span>");
+        var type = $("<span></span>");
+        var btnContainer = $("<a></a>");
+        var typename = $("<button></button>");
+        var tc = $("<span></span>");
+        var tc1 = $("<span></span>");
+        var tc2 = $("<span></span>");
+        var tc3 = $("<span></span>");
+
+        var scoreCard = $("<div></div>");
+        var advCard = $("<div></div>");
+        var scoreintro = $("<h6></h6>");
+        var thescore = $("<h1></h1>");
+
+        var adv = $("<h6></h6>");
+        var adv1 = $("<p></p>");
+        var adv2 = $("<p></p>");
+        var adv3 = $("<p></p>");
+
+        var introBody = $("<div></div>");
+        var showintro = $("<p></p>");
+        var intromation = $("<p></p>");
+
+        body.addClass("row");
+        leftContainer.addClass("col-lg-4");
+        rightContainer.addClass("col-lg-8");
+        cardIMG.addClass("card-img");
+        userPhoto.addClass("w-100");
+        cardFooter.addClass("card-footer");
+        dp.addClass("text-muted");
+        rn.addClass("text-muted");
+        official.addClass("text-muted");
+        pbTime.addClass("text-muted");
+        price.addClass("text-muted");
+        tools.addClass("text-muted");
+        type.addClass("text-muted");
+        tc.addClass("text-muted");
+        dpname.addClass("card-text");
+        rnname.addClass("card-text");
+        ofname.addClass("card-text");
+        time.addClass("card-text");
+        pricetag.addClass("card-text");
+        toolsname.addClass("card-text");
+        typename.addClass("btn btn-link pt-0");
+        tc1.addClass("tag tag-default pl-1 pr-1 ml-1");
+        tc2.addClass("tag tag-default pl-1 pr-1 ml-1");
+        tc3.addClass("tag tag-default pl-1 pr-1 ml-1");
+        player.addClass("text-muted small");
+
+        rightBody.addClass("row");
+        inforBody.addClass("col-lg-9");
+        scoreBody.addClass("col-lg-3");
+
+        title.addClass("card-title");
+        nexttitle.addClass("card-title text-muted");
+
+        scoreCard.addClass("card-block bg-danger");
+        advCard.addClass("card-block");
+        scoreintro.addClass("card-title text-white text-lg-center");
+        thescore.addClass("card-title text-white text-lg-center");
+
+        adv.addClass("card-title text-danger");
+        adv1.addClass("card-text");
+        adv2.addClass("card-text");
+        adv3.addClass("card-text");
+
+        introBody.addClass("card-block");
+        showintro.addClass("card-title text-muted");
+        intromation.addClass("card-text");
+
+        userPhoto.attr("src",info["src"]);
+        dp.html(info["DP"]);
+        dpname.html(info["DPname"]);
+        rn.html(info["run"]);
+        rnname.html(info["runname"] + "&nbsp&nbsp&nbsp");
+        official.html(info["official"]);
+        ofname.html(info["ofname"]);
+        player.html(info["player"]);
+        title.html(info["CN_title"]);
+        nexttitle.html(info["EN_title"]);
+        pbTime.html(info["publicTime"]);
+        time.html(info["time"]);
+        price.html(info["price"]);
+        pricetag.html(info["pricetag"]);
+        tools.html(info["platform"]);
+        toolsname.html(info["PFname"]);
+        type.html(info["type"]);
+        typename.html(info["typename"]);
+        tc.html(info["ages"]);
+        tc1.html(info["ages_1"]);
+        tc2.html(info["ages_2"]);
+        tc3.html(info["ages_3"]);
+        scoreintro.html(info[""]);
+        scoreintro.html(info["score"]);
+        thescore.html(info["thisscore"]);
+        adv.html(info["adv"]);
+        adv1.html(info["adv1"]);
+        adv2.html(info["adv2"]);
+        adv3.html(info["adv3"]);
+
+        showintro.html(info["infotittl"]);
+        intromation.html(info["info"]);
+
+        body.append(leftContainer);
+        body.append(rightContainer);
+        leftContainer.append(cardIMG);
+        leftContainer.append(cardFooter);
+
+        cardIMG.append(userPhoto);
+        cardFooter.append(DPContainer);
+        cardFooter.append(RNContainer);
+        RNContainer.append(rn);
+        RNContainer.append(rnname);
+        DPContainer.append(dp);
+        DPContainer.append(dpname);
+        RNContainer.append(official);
+        RNContainer.append(ofname);
+        PLContainer.append(player)
+        cardFooter.append(PLContainer);
+
+        rightContainer.append(rightBody);
+        rightBody.append(inforBody);
+        rightBody.append(scoreBody);
+        rightContainer.append(introBody);
+
+        inforBody.append(title);
+        inforBody.append(nexttitle);
+        inforBody.append(pubContainer);
+        inforBody.append(priContainer);
+        inforBody.append(toolContainer);
+        inforBody.append(typeContainer);
+        inforBody.append(rcgContainer);
+        rcgContainer.append(tc);
+        rcgContainer.append(tc1);
+        rcgContainer.append(tc2);
+        rcgContainer.append(tc3);
+        toolContainer.append(tools);
+        toolContainer.append(toolsname);
+        typeContainer.append(type);
+        typeContainer.append(typename);
+        priContainer.append(price);
+        priContainer.append(pricetag);
+        pubContainer.append(pbTime);
+        pubContainer.append(time);
+
+        scoreBody.append(scoreCard);
+        scoreBody.append(advCard);
+
+        scoreCard.append(scoreintro);
+        scoreCard.append(thescore);
+
+        advCard.append(adv);
+        advCard.append(adv1);
+        advCard.append(adv2);
+        advCard.append(adv3);
+
+        introBody.append(showintro);
+        introBody.append(intromation);
+        $jsontip.append(body);//显示处理后的数据
+      })
+    })
+  })
+
+  $(function(){
+    $.getJSON("../../files/data/HWComment.json",function(data){
+      var $jsontip = $("#myComment");
+      var otherComment = $("<h6></h6>");
+      otherComment.addClass("card-text mt-3");
+      otherComment.html("最新评论");
+
+      $jsontip.empty();//清空内容
+      $jsontip.append(otherComment);//显示处理后的数据
+      $.each(data,function(infoIndex,info){
+        var cardBody = $("<div></div>");
+        var fgx = $("<hr/>");
+        var commentBody = $("<div></div>");
+        var commentContent = $("<div></div>");
+        var imgContainer = $("<div></div>");
+        var textContainer = $("<div></div>");
+        var author = $("<span></span>");
+        var authorLink = $("<a></a>");
+        var time = $("<span></span>");
+        var cardText = $("<p></p>");
+        var commitBTN = $("<button></button>");
+        var userPhoto = $("<img>");
+
+        cardBody.addClass("card-block");
+//          cardTitle.addClass("card-title");
+        commentBody.addClass("container-fluid");
+        commentContent.addClass("row");
+        imgContainer.addClass("col-lg-2 col-md-2 col-sm-2 col-xs-2");
+        textContainer.addClass("col-lg-10 col-md-10 col-sm-10 col-xs-10");
+        time.addClass("text-muted commentBTN");
+        cardText.addClass("card-text");
+        commitBTN.addClass("btn btn-md btn-secondary commentBTN");
+        userPhoto.addClass("w-100");
+        author.addClass("mr-2")
+//          cardTitle.html(info["title"]);
+        userPhoto.attr("src",info["photo"]);
+        authorLink.html(info["name"]);
+        time.html(info["time"]);
+        cardText.html(info["comment_container"]);
+        commitBTN.html("回复");
+
+        cardBody.append(commentBody);
+        commentBody.append(commentContent);
+        commentContent.append(imgContainer);
+        commentContent.append(textContainer);
+        imgContainer.append(userPhoto);
+        author.append(authorLink);
+        textContainer.append(author);
+        textContainer.append(time);
+        textContainer.append(cardText);
+        textContainer.append(commitBTN);
+
+        $jsontip.append(fgx);//显示处理后的数据
+        $jsontip.append(cardBody);//显示处理后的数据
+      })
+    })
+  })
+</script>
+</body>
+</html>

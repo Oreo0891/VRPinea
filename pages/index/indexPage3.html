@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>VRPinea网站</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../dist/css/bootstrap-flex.css">
+  <link rel="stylesheet" href="../../dist/css/myStyle.css">
+  <script src="../../dist/js/myLogin.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  <!--<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">-->
+  <style>
+    .mynav {
+      padding-top: 2rem;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+    }
+
+    .nav-item {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+<!--硬件厂商/内容厂商-->
+<nav class="navbar navbar-light" style="font-size: 1em">
+  <div class="container">
+    <ul class="nav nav-tabs mynav" role="tablist">
+      <li class="nav-item" style=" width:50%;">
+        <a href="#hardWare" class="nav-link" role="tab" data-toggle="tab">VR硬件</a>
+      </li>
+      <li class="nav-item" style=" width:50%;">
+      <a href="#softWare" class="nav-link" role="tab" data-toggle="tab">VR内容</a>
+    </li>
+    </ul>
+  </div>
+</nav>
+<!--卡片-->
+<div class="tab-content" >
+  <div role="tabpanel" class="tab-pane active" id="hardWare">
+  </div>
+  <div role="tabpanel" class="tab-pane " id="softWare">
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $.getJSON("../../files/data/hardWare.json",function(data){
+      var count = 0;
+      var $jsontip = $("#hardWare");
+//          var strHtml = "123";//存储数据的变量
+      $jsontip.empty();//清空内容
+      $.each(data,function(infoIndex,info){
+        count++;
+        var cardBody = $("<div></div>");
+        var cardContainer = $("<div></div>");
+        var imgContainer = $("<div></div>");
+        var topContainer = $("<div></div>");
+        var bottomContainer = $("<div></div>");
+        var textContainer = $("<div></div>");
+        var tittlContainer = $("<div></div>");
+        var priceContainer = $("<div></div>");
+        var infoContainer = $("<div></div>");
+
+        var cardTittle = $("<h4></h4>");
+        var thisPrice = $("<h2></h2>");
+
+        var cardImg = $("<img/>");
+        var cardText1 = $("<p></p>");
+        var cardText2 = $("<p></p>");
+        var cardText3 = $("<p></p>");
+        var cardText4 = $("<p></p>");
+        var btnContainer = $("<p></p>");
+        var btnLink = $("<a></a>")
+
+        var type = $("<span></span>");
+        var typename = $("<span></span>");
+        var screen = $("<span></span>");
+        var screennum = $("<span></span>");
+        var FOV = $("<span></span>");
+        var FOVnum = $("<span></span>");
+        var reaction = $("<span></span>");
+        var reactionnum = $("<span></span>");
+        var btn = $("<button></button>")
+
+        var blank = $("<br/>");
+
+        btn.addClass("btn btn-secondary w-100");
+        type.addClass("text-muted");
+        screen.addClass("text-muted");
+        FOV.addClass("text-muted");
+        reaction.addClass("text-muted");
+
+        topContainer.addClass("row");
+        bottomContainer.addClass("row");
+        cardBody.addClass("card card-block");
+        cardContainer.addClass("row");
+        imgContainer.addClass("col-lg-4 col-md-4 col-sm-4 col-xs-4");
+        textContainer.addClass("col-lg-8 col-md-8 col-sm-8 col-xs-8");
+        cardText1.addClass("card-text hidden-md-down");
+        cardText2.addClass("card-text hidden-md-down");
+        cardText3.addClass("card-text hidden-md-down");
+        cardText4.addClass("card-text hidden-md-down");
+        cardImg.addClass("card-img-bottom	w-100");
+
+        type.html(info["type"]);
+        typename.html(info["typename"]);
+        screen.html(info["screen"]);
+        screennum.html(info["screennum"]);
+        FOV.html(info["FOV"]);
+        FOVnum.html(info["FOVnum"]);
+        reaction.html(info["reaction"]);
+        reactionnum.html(info["reactionnum"]);
+
+        btn.html("测评");
+        cardTittle.html(info["title"]);
+        thisPrice.html(info["price-tag"]);
+        cardImg.attr("src",info["src"]);
+        btnLink.attr("href","../mainPage/hardWare"+count+".html");
+
+        cardTittle.addClass("card-title");
+        tittlContainer.addClass("col-lg-6");
+        priceContainer.addClass("col-lg-6");
+        textContainer.addClass("card-text");
+        thisPrice.addClass("text-danger");
+
+        cardBody.append(cardContainer);
+
+        cardContainer.append(imgContainer);
+        cardContainer.append(textContainer);
+
+        imgContainer.append(cardImg);
+
+        textContainer.append(topContainer);
+        textContainer.append(bottomContainer);
+
+        topContainer.append(tittlContainer);
+        topContainer.append(priceContainer);
+
+        bottomContainer.append(infoContainer);
+
+        tittlContainer.append(cardTittle);
+        priceContainer.append(thisPrice);
+
+        cardText1.append(type);
+        cardText1.append(typename);
+        cardText2.append(screen);
+        cardText2.append(screennum);
+        cardText3.append(FOV);
+        cardText3.append(FOVnum);
+        cardText4.append(reaction);
+        cardText4.append(reactionnum);
+
+        btnLink.append(btn);
+        btnContainer.append(btnLink);
+
+        infoContainer.append(cardText1);
+        infoContainer.append(cardText2);
+        infoContainer.append(cardText3);
+        infoContainer.append(cardText4);
+        infoContainer.append(btnContainer);
+
+        $jsontip.append(cardBody);//显示处理后的数据
+        $jsontip.append(blank);
+      })
+    })
+  })
+  $(function(){
+    $.getJSON("../../files/data/softWare.json",function(data){
+      var count = 0;
+      var $jsontip = $("#softWare");
+//          var strHtml = "123";//存储数据的变量
+      $jsontip.empty();//清空内容
+      $.each(data,function(infoIndex,info){
+        count++;
+        var cardBody = $("<div></div>");
+        var cardContainer = $("<div></div>");
+        var imgContainer = $("<div></div>");
+        var topContainer = $("<div></div>");
+        var bottomContainer = $("<div></div>");
+        var textContainer = $("<div></div>");
+        var tittlContainer = $("<div></div>");
+        var priceContainer = $("<div></div>");
+        var infoContainer = $("<div></div>");
+
+        var cardTittle = $("<h4></h4>");
+        var thisPrice = $("<h2></h2>");
+
+        var cardImg = $("<img/>");
+        var cardText1 = $("<p></p>");
+        var cardText2 = $("<p></p>");
+        var cardText3 = $("<p></p>");
+        var cardText4 = $("<p></p>");
+        var btnContainer = $("<div></div>")
+
+        var type = $("<span></span>");
+        var typename = $("<span></span>");
+        var plantform = $("<span></span>");
+        var PFName = $("<span></span>");
+        var PublicTime = $("<span></span>");
+        var time = $("<span></span>");
+        var btn = $("<button></button>");
+
+        var btnLink = $("<a></a>");
+        var blank = $("<br/>");
+
+        btn.addClass("btn btn-secondary w-100");
+        type.addClass("text-muted");
+        plantform.addClass("text-muted");
+        PublicTime.addClass("text-muted");
+
+        topContainer.addClass("row");
+        bottomContainer.addClass("row");
+        cardBody.addClass("card card-block");
+        cardContainer.addClass("row");
+        imgContainer.addClass("col-lg-4 col-md-4 col-sm-4 col-xs-4");
+        textContainer.addClass("col-lg-8 col-md-8 col-sm-8 col-xs-8");
+        cardText1.addClass("card-text hidden-md-down");
+        cardText2.addClass("card-text hidden-md-down");
+        cardText3.addClass("card-text hidden-md-down");
+        cardText4.addClass("card-text hidden-md-down");
+        cardImg.addClass("card-img-bottom	w-100");
+
+        type.html(info["type"]);
+        typename.html(info["typename"]);
+        plantform.html(info["plantform"]);
+        PFName.html(info["PFName"]);
+        PublicTime.html(info["PublicTime"]);
+        time.html(info["time"]);
+
+        btn.html("测评");
+        cardTittle.html(info["title"]);
+        thisPrice.html(info["price-tag"]);
+        cardImg.attr("src",info["src"]);
+        btnLink.attr("href","../mainPage/softWare"+count+".html");
+
+        cardTittle.addClass("card-title");
+        tittlContainer.addClass("col-lg-6");
+        priceContainer.addClass("col-lg-6");
+        textContainer.addClass("card-text");
+        thisPrice.addClass("text-danger");
+
+        cardBody.append(cardContainer);
+
+        cardContainer.append(imgContainer);
+        cardContainer.append(textContainer);
+
+        imgContainer.append(cardImg);
+
+        textContainer.append(topContainer);
+        textContainer.append(bottomContainer);
+
+        topContainer.append(tittlContainer);
+        topContainer.append(priceContainer);
+
+        bottomContainer.append(infoContainer);
+
+        tittlContainer.append(cardTittle);
+        priceContainer.append(thisPrice);
+
+        cardText1.append(type);
+        cardText1.append(typename);
+        cardText2.append(plantform);
+        cardText2.append(PFName);
+        cardText3.append(PublicTime);
+        cardText3.append(time);
+        btnContainer.append(btnLink);
+        btnLink.append(btn);
+
+        infoContainer.append(cardText1);
+        infoContainer.append(cardText2);
+        infoContainer.append(cardText3);
+        infoContainer.append(cardText4);
+        infoContainer.append(btnContainer);
+
+        $jsontip.append(cardBody);//显示处理后的数据
+        $jsontip.append(blank);
+      })
+    })
+  })
+</script>
+
+
+<!-- jQuery first, then Bootstrap JS. -->
+</body>
+
+</html>
